@@ -12,7 +12,7 @@ const CollectionPreview = ({title, items}) => (
         <div className="preview">
             {items
                 .slice(0, PREVIEW_LIMIT)
-                .map(({id, ...collectionItemProps}) => <CollectionItem key={id} {...collectionItemProps}/>)}
+                .map((item) => <CollectionItem key={item.id} item={item}/>)}
         </div>
     </div>
 )

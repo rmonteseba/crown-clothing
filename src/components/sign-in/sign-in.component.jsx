@@ -6,8 +6,6 @@ import {auth, signInWithGoogle} from "../../firebase/firebase.utils";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 
-import {withRouter} from "react-router-dom";
-
 class SignIn extends React.Component {
     constructor(props) {
         super(props);
@@ -22,8 +20,6 @@ class SignIn extends React.Component {
         const {email, password} = this.state
         try {
             await auth.signInWithEmailAndPassword(email, password);
-            this.setState({email: '', password: ''})
-            this.props.history.push("/")
         } catch (error) {
             withReactContent(Swal).fire({
                 icon: 'error',
@@ -58,4 +54,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default withRouter(SignIn)
+export default SignIn
