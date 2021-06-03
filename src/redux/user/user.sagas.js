@@ -73,7 +73,6 @@ export function* onCheckUserSession() {
 }
 
 export function* signUp({payload: {displayName, email, password}}) {
-    console.log({displayName, email, password})
     try {
         const {user} = yield auth.createUserWithEmailAndPassword(email, password)
         yield createUserProfileDocument(user, {displayName});
